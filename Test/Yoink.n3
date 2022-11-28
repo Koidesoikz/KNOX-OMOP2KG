@@ -1,0 +1,15 @@
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ns1: <file:///D:/Programmering/KGPopulationTest/Ontology/TEST_ONT.ttl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/edward> a foaf:Person ;
+    ns1:hospital_org <http://example.org/donna> ;
+    foaf:mbox "e.scissorhands@example.org"^^xsd:anyURI ;
+    foaf:name "Edward Scissorhands" ;
+    foaf:nick "ed"^^xsd:string .
+
+<http://example.org/donna> a foaf:Person ;
+    foaf:mbox <mailto:donna@example.org> ;
+    foaf:name "Donna Fales" ;
+    foaf:nick "donna"@en .
+

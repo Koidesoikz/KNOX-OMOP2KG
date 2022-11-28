@@ -1,0 +1,383 @@
+@prefix : 		<http://visualdataweb.org/newOntology/> .
+@prefix rdf: 		<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: 		<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: 		<http://www.w3.org/2002/07/owl#> .
+@prefix xsd: 		<http://www.w3.org/2001/XMLSchema#> .
+@prefix dc: 		<http://purl.org/dc/elements/1.1/> .
+@prefix xml: 		<http://www.w3.org/XML/1998/namespace> .
+@prefix wot: 		<http://xmlns.com/wot/0.1/> .
+@prefix vs: 		<http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix foaf: 		<http://xmlns.com/foaf/0.1/> .
+@base 			<http://visualdataweb.org/newOntology/> .
+
+<http://visualdataweb.org/newOntology/> rdf:type owl:Ontology ;
+                                        dc:title "New ontology"@en; 
+                                        dc:description "New ontology description"@en . 
+#Multi relations
+:located_at
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :Hospital , :Organization , :Patient ;
+    rdfs:label "located at"^^xsd:string ;
+    rdfs:range :Location .
+
+:has_observation
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :Patient , :VisitOccurence ;
+    rdfs:label "has"^^xsd:string ;
+    rdfs:range :Observation .
+
+:subject_to
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :DeviceExposure , :Measurement ;
+    rdfs:label "subject"^^xsd:string ;
+    rdfs:range :Patient .
+
+:has_exposure
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :VisitOccurence , :Patient ;
+    rdfs:label "has"^^xsd:string ;
+    rdfs:range :DrugExposure .
+
+:has_suggestion
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :Patient , :VisitOccurence ;
+    rdfs:label "has"^^xsd:string ;
+    rdfs:range :ConditionSuggestion .
+
+###Single relations
+#Hospital
+:hospital_org
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :Hospital ;
+    rdfs:label "administrated by"^^xsd:string ;
+    rdfs:range :Organization .
+
+#Condition Suggestion
+:condsugg_healthpro
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :ConditionSuggestion ;
+    rdfs:label "diagnosed by"^^xsd:string ;
+    rdfs:range :HealthcareProfesional .
+
+#Drug Exposure
+:drugexp_drugcost
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :DrugExposure ;
+    rdfs:label "costs"^^xsd:string ;
+    rdfs:range :DrugCost .
+
+:drugexp_healthpro
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :DrugExposure ;
+    rdfs:label "administered by"^^xsd:string ;
+    rdfs:range :HealthcareProfesional .
+
+#Observation
+:obs_healthpro
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :Observation ;
+    rdfs:label "performed by"^^xsd:string ;
+    rdfs:range :HealthcareProfesional .
+
+#Payer Plan
+:payerplan_drugcost
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :PayerPlan ;
+    rdfs:label "contains"^^xsd:string ;
+    rdfs:range :DrugCost .
+
+:payerplan_procedurecost
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :PayerPlan ;
+    rdfs:label "contains"^^xsd:string ;
+    rdfs:range :ProcedureCost .
+
+#Patient
+:patient_obsperiod
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :Patient ;
+    rdfs:label "has"^^xsd:string ;
+    rdfs:range :ObservationPeriod .
+
+:patient_healthpro
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :Patient ;
+    rdfs:label "is seeing"^^xsd:string ;
+    rdfs:range :HealthcareProfesional .
+
+:patient_condperiod
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :Patient ;
+    rdfs:label "has"^^xsd:string ;
+    rdfs:range :ConditionPeriod .
+
+:patient_death
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :Patient ;
+    rdfs:label "has"^^xsd:string ;
+    rdfs:range :Death .
+
+:patient_cohort
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :Patient ;
+    rdfs:label "part of"^^xsd:string ;
+    rdfs:range :Cohort .
+
+:patient_druginfperiod
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :Patient ;
+    rdfs:label "influenced by"^^xsd:string ;
+    rdfs:range :DrugInfluencePeriod .
+
+:patient_visitocc
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :Patient ;
+    rdfs:label "has"^^xsd:string ;
+    rdfs:range :VisitOccurence .
+
+:patient_payerplan
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :Patient ;
+    rdfs:label "enrolled under"^^xsd:string ;
+    rdfs:range :PayerPlan .
+
+:patient_constdose
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :Patient ;
+    rdfs:label "has"^^xsd:string ;
+    rdfs:range :ConstantDosePeriod .
+
+:patient_obs
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :Patient ;
+    rdfs:label "has"^^xsd:string ;
+    rdfs:range :Observation .
+
+:patient_labspecimen
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :Patient ;
+    rdfs:label "has"^^xsd:string ;
+    rdfs:range :LaboratorySpecimen .
+
+:patient_procedureocc
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :Patient ;
+    rdfs:label "has"^^xsd:string ;
+    rdfs:range :ProcedureOccurence .
+
+#Procedure Occurence
+:procedureocc_procedurecost
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :ProcedureOccurence ;
+    rdfs:label "costs"^^xsd:string ;
+    rdfs:range :ProcedureCost .
+
+:procedureocc_healthproI
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :ProcedureOccurence ;
+    rdfs:label "ordered by"^^xsd:string ;
+    rdfs:range :HealthcareProfesional .
+
+:procedureocc_healthproII
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :ProcedureOccurence ;
+    rdfs:label "carried out by"^^xsd:string ;
+    rdfs:range :HealthcareProfesional .
+
+#Healthcare Profesional
+:healthpro_hospital
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :HealthcareProfesional ;
+    rdfs:label "works at"^^xsd:string ;
+    rdfs:range :Hospital .
+
+#Visit Occurence
+:visitocc_obs
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :VisitOccurence ;
+    rdfs:label "has"^^xsd:string ;
+    rdfs:range :Observation .
+
+:visitocc_note
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :VisitOccurence ;
+    rdfs:label "described by"^^xsd:string ;
+    rdfs:range :Note .
+
+:visitocc_devexp
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :VisitOccurence ;
+    rdfs:label "has"^^xsd:string ;
+    rdfs:range :DeviceExposure .
+
+:visitocc_healthpro
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :VisitOccurence ;
+    rdfs:label "performed by"^^xsd:string ;
+    rdfs:range :HealthcareProfesional .
+
+:visitocc_measurement
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :VisitOccurence ;
+    rdfs:label "has"^^xsd:string ;
+    rdfs:range :Measurement .
+
+:visitocc_procedureocc
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :VisitOccurence ;
+    rdfs:label "has"^^xsd:string ;
+    rdfs:range :ProcedureOccurence .
+
+#Device Exposure
+:devexp_healthpro
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :DeviceExposure ;
+    rdfs:label "exposed by"^^xsd:string ;
+    rdfs:range :HealthcareProfesional .
+
+#Measurement
+:measurement_patient
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :Measurement ;
+    rdfs:label "subject"^^xsd:string ;
+    rdfs:range :Patient .
+
+:measurement_healthpro
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :Measurement ;
+    rdfs:label "measured by"^^xsd:string ;
+    rdfs:range :HealthcareProfesional .
+
+#Note
+:note_healthpro
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :Note ;
+    rdfs:label "written by"^^xsd:string ;
+    rdfs:range :HealthcareProfesional .
+
+:note_patient
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain :Note ;
+    rdfs:label "revolves around"^^xsd:string ;
+    rdfs:range :Patient .
+
+#Classes
+:Hospital
+    rdf:type owl:Class ;
+rdfs:isDefinedBy <http://dbpedia.org/resource/Hospital>;
+     rdfs:label "Hospital"@en .
+
+:Cohort
+    rdf:type owl:Class ;
+rdfs:isDefinedBy <http://dbpedia.org/resource/Cohort>;
+     rdfs:label "Cohort"@en .
+
+:ConditionPeriod
+    rdf:type owl:Class ;
+rdfs:isDefinedBy <None>;
+     rdfs:label "Condition Period"@en .
+
+:ConditionSuggestion
+    rdf:type owl:Class ;
+rdfs:isDefinedBy <None>;
+     rdfs:label "Condition Suggestion"@en .
+
+:Death
+    rdf:type owl:Class ;
+rdfs:isDefinedBy <http://dbpedia.org/resource/Death>;
+     rdfs:label "Death"@en .
+
+:DrugCost
+    rdf:type owl:Class ;
+rdfs:isDefinedBy <None>;
+     rdfs:label "Drug cost"@en .
+
+:DrugInfluencePeriod
+    rdf:type owl:Class ;
+rdfs:isDefinedBy <None>;
+     rdfs:label "Drug Influence Period"@en .
+
+:DrugExposure
+    rdf:type owl:Class ;
+rdfs:isDefinedBy <None>;
+     rdfs:label "Drug Exposure"@en .
+
+:Location
+    rdf:type owl:Class ;
+rdfs:isDefinedBy <http://dbpedia.org/resource/Location>;
+     rdfs:label "Location"@en .
+
+:Observation
+    rdf:type owl:Class ;
+rdfs:isDefinedBy <http://dbpedia.org/resource/Observation>;
+     rdfs:label "Observation"@en .
+
+:Organization
+    rdf:type owl:Class ;
+rdfs:isDefinedBy <http://dbpedia.org/resource/Organization>;
+     rdfs:label "Organization"@en .
+
+:PayerPlan
+    rdf:type owl:Class ;
+rdfs:isDefinedBy <None>;
+     rdfs:label "Payer Plan"@en .
+
+:Patient
+    rdf:type owl:Class ;
+rdfs:isDefinedBy <http://dbpedia.org/resource/Patient>;
+     rdfs:label "Patient"@en .
+
+:ProcedureCost
+    rdf:type owl:Class ;
+rdfs:isDefinedBy <None>;
+     rdfs:label "Procedure Cost"@en .
+
+:ProcedureOccurence
+    rdf:type owl:Class ;
+rdfs:isDefinedBy <None>;
+     rdfs:label "Procedure Occurence"@en .
+
+:HealthcareProfesional
+    rdf:type owl:Class ;
+rdfs:isDefinedBy <None>;
+     rdfs:label "Healthcare Profesional"@en .
+
+:VisitOccurence
+    rdf:type owl:Class ;
+rdfs:isDefinedBy <None>;
+     rdfs:label "Visit Occurance"@en .
+
+:DeviceExposure
+    rdf:type owl:Class ;
+rdfs:isDefinedBy <None>;
+     rdfs:label "Device Exposure"@en .
+
+:ConstantDosePeriod
+    rdf:type owl:Class ;
+rdfs:isDefinedBy <None>;
+     rdfs:label "Constant Dose Period"@en .
+
+:DrugStrength
+    rdf:type owl:Class ;
+rdfs:isDefinedBy <None>;
+     rdfs:label "Drug Strength"@en .
+
+:Measurement
+    rdf:type owl:Class ;
+rdfs:isDefinedBy <http://dbpedia.org/resource/Measurement>;
+     rdfs:label "Measurement"@en .
+
+:Note
+    rdf:type owl:Class ;
+rdfs:isDefinedBy <http://dbpedia.org/resource/Note>;
+     rdfs:label "Note"@en .
+
+:ObservationPeriod
+    rdf:type owl:Class ;
+rdfs:isDefinedBy <None>;
+     rdfs:label "Observation Period"@en .
+
+:LaboratorySpecimen
+    rdf:type owl:Class ;
+rdfs:isDefinedBy <None>;
+     rdfs:label "Laboratory Specimen"@en .

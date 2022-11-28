@@ -1,0 +1,7 @@
+OntDomainURI;DomainFilename;DomainColumnName;Predicate;ObjectFilename;ObjectColumnName
+Patient->Specimen
+Patient->condperiod
+...
+
+Patient->Hospital
+Hospital->org

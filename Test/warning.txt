@@ -1,0 +1,5 @@
+Requirement already satisfied: six>=1.5 in c:\users\emil\appdata\roaming\python\python311\site-packages (from python-dateutil>=2.8.1->pandas) (1.16.0)
+Installing collected packages: pytz, python-dateutil, numpy, pandas
+  WARNING: The script f2py.exe is installed in 'C:\Users\Emil\AppData\Roaming\Python\Python311\Scripts' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed numpy-1.23.5 pandas-1.5.1 python-dateutil-2.8.2 pytz-2022.6
