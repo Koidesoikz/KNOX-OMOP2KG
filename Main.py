@@ -58,10 +58,27 @@ def YEP(PatientIDList, graph: rdflib.Graph, trippleGenerator: TripleGenerator):
     MappingList = ReadMapping()
     SegmentedMapping = MappingSplitter(MappingList)
 
+    ObservationIDList = []
+
     for Patient in PatientIDList:
         for line in SegmentedMapping[0]:
             line = line.split(';')
-            res = QueryCSV(line[1], line[2], line[3], Patient)
+
+            #res = QueryCSV(File, subjectColumn, objectColumn, value)
+            #      QueryCSV(observation.csv, person_id, observation_id, Patient)
+
+            #ObservationIDList.add(res.observation_id)
+            #
+
+    for Observation in ObservationIDList:
+        for line in SegmentedMapping[4]:
+            line = line.split(';')
+
+            #res = QueryCSV(File, subjectColumn, objectColumn, value)
+            #      QueryCSV(observation.csv, observation_id, provider_id, Observation)
+
+            #ProviderIDList.add(res.provider_id)
+            #
 
 
     # for patient in PatientIDList:
