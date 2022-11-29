@@ -11,10 +11,7 @@ def ReadMapping(location):
     file.close()
     return lines
 
-
-def YEP(PatientIDList, graph: rdflib.Graph, trippleGenerator: TripleGenerator):
-    MappingInfo = ReadMapping()
-
+def MappingSplitter(MappingList):
     PatientMapList = []
     CaresiteMapList = []
     ConditionSuggestionMapList = []
@@ -27,7 +24,7 @@ def YEP(PatientIDList, graph: rdflib.Graph, trippleGenerator: TripleGenerator):
     VisitOccurenceMapList = []
     DeviceExposureMapList = []
 
-    for line in MappingInfo:
+    for line in MappingList:
         match line.split(';')[0]:
             case "Patient":
                 PatientMapList.add(line)
@@ -52,12 +49,24 @@ def YEP(PatientIDList, graph: rdflib.Graph, trippleGenerator: TripleGenerator):
             case "DeviceExposure":
                 DeviceExposureMapList.add(line)
             case _:
-                print("Incorrect input in YEP()")
+                print("Incorrect input in MappingSplitter()")
+    return [PatientMapList, CaresiteMapList, ConditionSuggestionMapList, DrugExposureMapList, ObservationMapList, OrganizationMapList, PayerPlanMapList, ProcedureOccurenceMapList, HealthcareProfessionalMapList, VisitOccurenceMapList, DeviceExposureMapList]
+    
+    
+
+def YEP(PatientIDList, graph: rdflib.Graph, trippleGenerator: TripleGenerator):
+    MappingList = ReadMapping()
+    SegmentedMapping = MappingSplitter(MappingList)
+
+    for Patient in PatientIDList:
+        for line in SegmentedMapping[0]:
+            line = line.split(';')
+            res = QueryCSV(line[1], line[2], line[3], Patient)
 
 
     # for patient in PatientIDList:
     #     #Burde det her ikk kun være de lines der starter med patient???
-    #     for line in MappingInfo:
+    #     for line in MappingList:
     #         line = line.split(';')
 
     #         match line[0]:
