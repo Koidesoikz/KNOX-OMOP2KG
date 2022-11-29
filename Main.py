@@ -15,18 +15,58 @@ def ReadMapping(location):
 def YEP(PatientIDList, graph: rdflib.Graph, trippleGenerator: TripleGenerator):
     MappingInfo = ReadMapping()
 
-    for patient in PatientIDList:
-        #Burde det her ikk kun være de lines der starter med patient???
-        for line in MappingInfo:
-            line = line.split(';')
+    PatientMapList = []
+    CaresiteMapList = []
+    ConditionSuggestionMapList = []
+    DrugExposureMapList = []
+    ObservationMapList = []
+    OrganizationMapList = []
+    PayerPlanMapList = []
+    ProcedureOccurenceMapList = []
+    HealthcareProfessionalMapList = []
+    VisitOccurenceMapList = []
+    DeviceExposureMapList = []
 
-            match line[0]:
-                case "Patient":
-                    #Den burde vel få mere end en linje (alle lines der starter med patient), så tænker jeg endnu et for loop i Patient klassen
-                    graph = trippleGenerator.Patient(line, graph)
+    for line in MappingInfo:
+        match line.split(';')[0]:
+            case "Patient":
+                PatientMapList.add(line)
+            case "Caresite":
+                CaresiteMapList.add(line)
+            case "ConditionSuggestion":
+                ConditionSuggestionMapList.add(line)
+            case "DrugExposure":
+                DrugExposureMapList.add(line)
+            case "Observation":
+                ObservationMapList.add(line)
+            case "Organization":
+                OrganizationMapList.add(line)
+            case "PayerPlan":
+                PayerPlanMapList.add(line)
+            case "ProcedureOccurence":
+                ProcedureOccurenceMapList.add(line)
+            case "HealthcareProfessional":
+                HealthcareProfessionalMapList.add(line)
+            case "VisitOccurence":
+                VisitOccurenceMapList.add(line)
+            case "DeviceExposure":
+                DeviceExposureMapList.add(line)
+            case _:
+                print("Incorrect input in YEP()")
 
 
-            res = QueryCSV(line[1], line[2], line[3], patient)
+    # for patient in PatientIDList:
+    #     #Burde det her ikk kun være de lines der starter med patient???
+    #     for line in MappingInfo:
+    #         line = line.split(';')
+
+    #         match line[0]:
+    #             case "Patient":
+    #                 #Den burde vel få mere end en linje (alle lines der starter med patient), så tænker jeg endnu et for loop i Patient klassen
+    #                 graph = trippleGenerator.Patient(line, graph)
+
+
+    #         res = QueryCSV(line[1], line[2], line[3], patient)
 
 
 
