@@ -6,80 +6,27 @@ from csvkit.utilities.csvsql import CSVSQL
 def ReadMapping(location):
     file = open(location, 'r')
 
-    #subject;file;subjectColName;objectColName;predicate
+    #file;subjectColumn;objectColumn;predicate
     lines = file.readlines()
     file.close()
+    print("readmapping")
     return lines
+    
 
-def MappingSplitter(MappingList):
-    PatientMapList = []
-    CaresiteMapList = []
-    ConditionSuggestionMapList = []
-    DrugExposureMapList = []
-    ObservationMapList = []
-    OrganizationMapList = []
-    PayerPlanMapList = []
-    ProcedureOccurenceMapList = []
-    HealthcareProfessionalMapList = []
-    VisitOccurenceMapList = []
-    DeviceExposureMapList = []
+def YEP(MappingPath, graph: rdflib.Graph, trippleGenerator: TripleGenerator):
+    MappingList = ReadMapping(MappingPath)
 
     for line in MappingList:
-        match line.split(';')[0]:
-            case "Patient":
-                PatientMapList.add(line)
-            case "Caresite":
-                CaresiteMapList.add(line)
-            case "ConditionSuggestion":
-                ConditionSuggestionMapList.add(line)
-            case "DrugExposure":
-                DrugExposureMapList.add(line)
-            case "Observation":
-                ObservationMapList.add(line)
-            case "Organization":
-                OrganizationMapList.add(line)
-            case "PayerPlan":
-                PayerPlanMapList.add(line)
-            case "ProcedureOccurence":
-                ProcedureOccurenceMapList.add(line)
-            case "HealthcareProfessional":
-                HealthcareProfessionalMapList.add(line)
-            case "VisitOccurence":
-                VisitOccurenceMapList.add(line)
-            case "DeviceExposure":
-                DeviceExposureMapList.add(line)
-            case _:
-                print("Incorrect input in MappingSplitter()")
-    return [PatientMapList, CaresiteMapList, ConditionSuggestionMapList, DrugExposureMapList, ObservationMapList, OrganizationMapList, PayerPlanMapList, ProcedureOccurenceMapList, HealthcareProfessionalMapList, VisitOccurenceMapList, DeviceExposureMapList]
-    
-    
+        print("Line break")
+        line = line.split(';')
 
-def YEP(PatientIDList, graph: rdflib.Graph, trippleGenerator: TripleGenerator):
-    MappingList = ReadMapping()
-    SegmentedMapping = MappingSplitter(MappingList)
+        res = IO.QueryCSV(line[0], line[1], line[2])
 
-    ObservationIDList = []
+        for i in range(1, len(res[0])):
+            TripleGenerator.LavTriple(res[0][i], res[1][i], line[3])
 
-    for Patient in PatientIDList:
-        for line in SegmentedMapping[0]:
-            line = line.split(';')
-
-            #res = QueryCSV(File, subjectColumn, objectColumn, value)
-            #      QueryCSV(observation.csv, person_id, observation_id, Patient)
-
-            #ObservationIDList.add(res.observation_id)
-            #
-
-    for Observation in ObservationIDList:
-        for line in SegmentedMapping[4]:
-            line = line.split(';')
-
-            #res = QueryCSV(File, subjectColumn, objectColumn, value)
-            #      QueryCSV(observation.csv, observation_id, provider_id, Observation)
-
-            #ProviderIDList.add(res.provider_id)
-            #
-
+        # for data in res:
+        #     TripleGenerator.LavTriple(data[0], data[1], line[3])
 
     # for patient in PatientIDList:
     #     #Burde det her ikk kun være de lines der starter med patient???
@@ -100,17 +47,13 @@ def Main(ontPath):
     ont = rdflib.Namespace(ontPath)
     graph = rdflib.Graph()
 
-    trippleGenerator = TripleGenerator(ont)
+    trippleGenerator = TripleGenerator(ont, graph)
 
     csvPath = "Dataset/mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv/person.csv"
+    MappingPath = "mapping.txt"
 
-    column = IO.GetColumnNum(csvPath, "person_id")
-    Persons = IO.GetClassIds(csvPath, column)
-
-    YEP(Persons, graph, trippleGenerator)
+    YEP(MappingPath, graph, trippleGenerator)
     
-
-
 
 if __name__ == "__main__":
     # DET HER FUCKER JEG MED SENERE

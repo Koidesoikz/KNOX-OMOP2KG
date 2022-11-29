@@ -1,7 +1,1 @@
-OntDomainURI;DomainFilename;DomainColumnName;Predicate;ObjectFilename;ObjectColumnName
-Patient->Specimen
-Patient->condperiod
-...
-
-Patient->Hospital
-Hospital->org
+Dataset/mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv/observation.csv;person_id;observation_id;has

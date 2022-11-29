@@ -31,6 +31,9 @@ def GetClassIds(csvPath, column):
 
     # print(res.main())
 
+def QueryCSV(file, col1, col2):
+    return [GetClassIds(file, GetColumnNum(file, col1)), GetClassIds(file, GetColumnNum(file, col2))]
+
 def GetColumnNum(csvPath, name):
     file = open(csvPath, 'r')
     line = file.readline()
