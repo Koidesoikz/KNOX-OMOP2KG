@@ -5,7 +5,7 @@ from rdflib.namespace import FOAF , XSD
 # Create a Graph
 g = Graph()
 
-TestOnt = Namespace("file:///D:/Programmering/KGPopulationTest/Ontology/TEST_ONT.ttl#")
+TestOnt = Namespace("file:///C:/GitHub/KNOX-OMOP2KG/Ontology/TEST_ONT.ttl#")
 
 # Create an RDF URI node to use as the subject for multiple triples
 donna = URIRef("http://example.org/donna")

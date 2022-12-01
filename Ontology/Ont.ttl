@@ -1,0 +1,323 @@
+#################################################################
+###  Generated with the experimental alpha version of the TTL exporter of WebVOWL (version 1.1.7)  http://visualdataweb.de/webvowl/   ###
+#################################################################
+
+@prefix : 		<http://visualdataweb.org/newOntology/> .
+@prefix rdf: 		<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: 		<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: 		<http://www.w3.org/2002/07/owl#> .
+@prefix xsd: 		<http://www.w3.org/2001/XMLSchema#> .
+@prefix dc: 		<http://purl.org/dc/elements/1.1/> .
+@prefix xml: 		<http://www.w3.org/XML/1998/namespace> .
+@prefix wot: 		<http://xmlns.com/wot/0.1/> .
+@prefix vs: 		<http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix foaf: 		<http://xmlns.com/foaf/0.1/> .
+@prefix : 		<http://visualdataweb.org/newOntology/> .
+@base 			<http://visualdataweb.org/newOntology/> .
+
+<http://visualdataweb.org/newOntology/> rdf:type owl:Ontology ;
+                                        dc:title "New ontology"@en; 
+                                        dc:description "New ontology description"@en . 
+#################################################################
+
+###  Property Definitions (Number of Property) 35 ###
+#  --------------------------- Property 0------------------------- 
+:hospital_org rdf:type owl:ObjectProperty ;
+              rdfs:label "hospital_org"@IRI-based; 
+              rdfs:label "administrated by"@en; 
+              rdfs:domain :Hospital;
+              rdfs:range :Organization . 
+#  --------------------------- Property 1------------------------- 
+:obs_healthpro rdf:type owl:ObjectProperty ;
+               rdfs:label "obs_healthpro"@IRI-based; 
+               rdfs:label "performed by"@en; 
+               rdfs:domain :Observation;
+               rdfs:range :HealthcareProfesional . 
+#  --------------------------- Property 2------------------------- 
+:payerplan_drugcost rdf:type owl:ObjectProperty ;
+                    rdfs:label "payerplan_drugcost"@IRI-based; 
+                    rdfs:label "contains"@en; 
+                    rdfs:domain :PayerPlan;
+                    rdfs:range :DrugCost . 
+#  --------------------------- Property 3------------------------- 
+:measurement_healthpro rdf:type owl:ObjectProperty ;
+                       rdfs:label "measurement_healthpro"@IRI-based; 
+                       rdfs:label "measured by"@en; 
+                       rdfs:domain :Measurement;
+                       rdfs:range :HealthcareProfesional . 
+#  --------------------------- Property 4------------------------- 
+:visitocc_note rdf:type owl:ObjectProperty ;
+               rdfs:label "visitocc_note"@IRI-based; 
+               rdfs:label "described by"@en; 
+               rdfs:domain :VisitOccurence;
+               rdfs:range :Note . 
+#  --------------------------- Property 5------------------------- 
+:visitocc_procedureocc rdf:type owl:ObjectProperty ;
+                       rdfs:label "visitocc_procedureocc"@IRI-based; 
+                       rdfs:label "has"@en; 
+                       rdfs:domain :VisitOccurence;
+                       rdfs:range :ProcedureOccurence . 
+#  --------------------------- Property 6------------------------- 
+:visitocc_measurement rdf:type owl:ObjectProperty ;
+                      rdfs:label "visitocc_measurement"@IRI-based; 
+                      rdfs:label "has"@en; 
+                      rdfs:domain :VisitOccurence;
+                      rdfs:range :Measurement . 
+#  --------------------------- Property 7------------------------- 
+:note_healthpro rdf:type owl:ObjectProperty ;
+                rdfs:label "note_healthpro"@IRI-based; 
+                rdfs:label "written by"@en; 
+                rdfs:domain :Note;
+                rdfs:range :HealthcareProfesional . 
+#  --------------------------- Property 8------------------------- 
+:patient_healthpro rdf:type owl:ObjectProperty ;
+                   rdfs:label "patient_healthpro"@IRI-based; 
+                   rdfs:label "is seeing"@en; 
+                   rdfs:domain :Patient;
+                   rdfs:range :HealthcareProfesional . 
+#  --------------------------- Property 9------------------------- 
+:condsugg_healthpro rdf:type owl:ObjectProperty ;
+                    rdfs:label "condsugg_healthpro"@IRI-based; 
+                    rdfs:label "diagnosed by"@en; 
+                    rdfs:domain :ConditionSuggestion;
+                    rdfs:range :HealthcareProfesional . 
+#  --------------------------- Property 10------------------------- 
+:patient_constdose rdf:type owl:ObjectProperty ;
+                   rdfs:label "patient_constdose"@IRI-based; 
+                   rdfs:label "has"@en; 
+                   rdfs:domain :Patient;
+                   rdfs:range :ConstantDosePeriod . 
+#  --------------------------- Property 11------------------------- 
+:patient_druginfperiod rdf:type owl:ObjectProperty ;
+                       rdfs:label "patient_druginfperiod"@IRI-based; 
+                       rdfs:label "influenced by"@en; 
+                       rdfs:domain :Patient;
+                       rdfs:range :DrugInfluencePeriod . 
+#  --------------------------- Property 12------------------------- 
+:visitocc_obs rdf:type owl:ObjectProperty ;
+              rdfs:label "visitocc_obs"@IRI-based; 
+              rdfs:label "has"@en; 
+              rdfs:domain :VisitOccurence;
+              rdfs:range :Observation . 
+#  --------------------------- Property 13------------------------- 
+:patient_payerplan rdf:type owl:ObjectProperty ;
+                   rdfs:label "patient_payerplan"@IRI-based; 
+                   rdfs:label "enrolled under"@en; 
+                   rdfs:domain :Patient;
+                   rdfs:range :PayerPlan . 
+#  --------------------------- Property 14------------------------- 
+:patient_obsperiod rdf:type owl:ObjectProperty ;
+                   rdfs:label "patient_obsperiod"@IRI-based; 
+                   rdfs:label "has"@en; 
+                   rdfs:domain :Patient;
+                   rdfs:range :ObservationPeriod . 
+#  --------------------------- Property 15------------------------- 
+:visitocc_devexp rdf:type owl:ObjectProperty ;
+                 rdfs:label "visitocc_devexp"@IRI-based; 
+                 rdfs:label "has"@en; 
+                 rdfs:domain :VisitOccurence;
+                 rdfs:range :DeviceExposure . 
+#  --------------------------- Property 16------------------------- 
+:payerplan_procedurecost rdf:type owl:ObjectProperty ;
+                         rdfs:label "payerplan_procedurecost"@IRI-based; 
+                         rdfs:label "contains"@en; 
+                         rdfs:domain :PayerPlan;
+                         rdfs:range :ProcedureCost . 
+#  --------------------------- Property 17------------------------- 
+:patient_visitocc rdf:type owl:ObjectProperty ;
+                  rdfs:label "patient_visitocc"@IRI-based; 
+                  rdfs:label "has"@en; 
+                  rdfs:domain :Patient;
+                  rdfs:range :VisitOccurence . 
+#  --------------------------- Property 18------------------------- 
+:patient_cohort rdf:type owl:ObjectProperty ;
+                rdfs:label "patient_cohort"@IRI-based; 
+                rdfs:label "part of"@en; 
+                rdfs:domain :Patient;
+                rdfs:range :Cohort . 
+#  --------------------------- Property 19------------------------- 
+:devexp_healthpro rdf:type owl:ObjectProperty ;
+                  rdfs:label "devexp_healthpro"@IRI-based; 
+                  rdfs:label "exposed by"@en; 
+                  rdfs:domain :DeviceExposure;
+                  rdfs:range :HealthcareProfesional . 
+#  --------------------------- Property 20------------------------- 
+:drugexp_drugcost rdf:type owl:ObjectProperty ;
+                  rdfs:label "drugexp_drugcost"@IRI-based; 
+                  rdfs:label "costs"@en; 
+                  rdfs:domain :DrugExposure;
+                  rdfs:range :DrugCost . 
+#  --------------------------- Property 21------------------------- 
+:procedureocc_procedurecost rdf:type owl:ObjectProperty ;
+                            rdfs:label "procedureocc_procedurecost"@IRI-based; 
+                            rdfs:label "costs"@en; 
+                            rdfs:domain :ProcedureOccurence;
+                            rdfs:range :ProcedureCost . 
+#  --------------------------- Property 22------------------------- 
+:patient_labspecimen rdf:type owl:ObjectProperty ;
+                     rdfs:label "patient_labspecimen"@IRI-based; 
+                     rdfs:label "has"@en; 
+                     rdfs:domain :Patient;
+                     rdfs:range :LaboratorySpecimen . 
+#  --------------------------- Property 23------------------------- 
+:patient_death rdf:type owl:ObjectProperty ;
+               rdfs:label "patient_death"@IRI-based; 
+               rdfs:label "died of"@en; 
+               rdfs:domain :Patient;
+               rdfs:range :Death . 
+#  --------------------------- Property 24------------------------- 
+:drugexp_healthpro rdf:type owl:ObjectProperty ;
+                   rdfs:label "drugexp_healthpro"@IRI-based; 
+                   rdfs:label "administered by"@en; 
+                   rdfs:domain :DrugExposure;
+                   rdfs:range :HealthcareProfesional . 
+#  --------------------------- Property 25------------------------- 
+:patient_condperiod rdf:type owl:ObjectProperty ;
+                    rdfs:label "patient_condperiod"@IRI-based; 
+                    rdfs:label "has"@en; 
+                    rdfs:domain :Patient;
+                    rdfs:range :ConditionPeriod . 
+#  --------------------------- Property 26------------------------- 
+:procedureocc_healthproI rdf:type owl:ObjectProperty ;
+                         rdfs:label "procedureocc_healthproI"@IRI-based; 
+                         rdfs:label "ordered by"@en; 
+                         rdfs:domain :ProcedureOccurence;
+                         rdfs:range :HealthcareProfesional . 
+#  --------------------------- Property 27------------------------- 
+:procedureocc_healthproII rdf:type owl:ObjectProperty ;
+                          rdfs:label "Perfomed by"@en; 
+                          rdfs:domain :ProcedureOccurence;
+                          rdfs:range :HealthcareProfesional . 
+#  --------------------------- Property 28------------------------- 
+:healthpro_hospital rdf:type owl:ObjectProperty ;
+                    rdfs:label "healthpro_hospital"@IRI-based; 
+                    rdfs:label "works at"@en; 
+                    rdfs:domain :HealthcareProfesional;
+                    rdfs:range :Hospital . 
+#  --------------------------- Property 29------------------------- 
+:hasI rdf:type owl:ObjectProperty ;
+     rdfs:label "has"@en; 
+     rdfs:domain :VisitOccurence;
+     rdfs:range :ConditionSuggestion . 
+#  --------------------------- Property 30------------------------- 
+:hasII rdf:type owl:ObjectProperty ;
+     rdfs:label "has"@en; 
+     rdfs:domain :VisitOccurence;
+     rdfs:range :DrugExposure . 
+#  --------------------------- Property 31------------------------- 
+:Hospitalized_at rdf:type owl:ObjectProperty ;
+                 rdfs:label "Hospitalized at"@en; 
+                 rdfs:domain :Patient;
+                 rdfs:range :Hospital . 
+#  --------------------------- Property 32------------------------- 
+:lives_at rdf:type owl:ObjectProperty ;
+          rdfs:label "lives at"@en; 
+          rdfs:domain :Patient;
+          rdfs:range :Location . 
+#  --------------------------- Property 33------------------------- 
+:located_at rdf:type owl:ObjectProperty ;
+            rdfs:label "located at"@en; 
+            rdfs:domain :Hospital;
+            rdfs:range :Location . 
+#  --------------------------- Property 34------------------------- 
+:located_at rdf:type owl:ObjectProperty ;
+            rdfs:label "located at"@en; 
+            rdfs:domain :Organization;
+            rdfs:range :Location . 
+###  Class Definitions (Number of Classes) 24 ###
+#  --------------------------- Class  0------------------------- 
+:VisitOccurence rdf:type owl:Class; 
+                rdfs:label "VisitOccurence"@IRI-based; 
+                rdfs:label "Visit Occurance"@en . 
+#  --------------------------- Class  1------------------------- 
+:ConditionPeriod rdf:type owl:Class; 
+                 rdfs:label "ConditionPeriod"@IRI-based; 
+                 rdfs:label "Condition Period"@en . 
+#  --------------------------- Class  2------------------------- 
+:Organization rdf:type owl:Class; 
+              rdfs:label "Organization"@IRI-based; 
+              rdfs:label "Organization"@en . 
+#  --------------------------- Class  3------------------------- 
+:DrugExposure rdf:type owl:Class; 
+              rdfs:label "DrugExposure"@IRI-based; 
+              rdfs:label "Drug Exposure"@en . 
+#  --------------------------- Class  4------------------------- 
+:DeviceExposure rdf:type owl:Class; 
+                rdfs:label "DeviceExposure"@IRI-based; 
+                rdfs:label "Device Exposure"@en . 
+#  --------------------------- Class  5------------------------- 
+:Note rdf:type owl:Class; 
+      rdfs:label "Note"@IRI-based; 
+      rdfs:label "Note"@en . 
+#  --------------------------- Class  6------------------------- 
+:PayerPlan rdf:type owl:Class; 
+           rdfs:label "PayerPlan"@IRI-based; 
+           rdfs:label "Payer Plan"@en . 
+#  --------------------------- Class  7------------------------- 
+:Death rdf:type owl:Class; 
+       rdfs:label "Death"@IRI-based; 
+       rdfs:label "Death"@en . 
+#  --------------------------- Class  8------------------------- 
+:ProcedureOccurence rdf:type owl:Class; 
+                    rdfs:label "ProcedureOccurence"@IRI-based; 
+                    rdfs:label "Procedure Occurence"@en . 
+#  --------------------------- Class  9------------------------- 
+:ProcedureCost rdf:type owl:Class; 
+               rdfs:label "ProcedureCost"@IRI-based; 
+               rdfs:label "Procedure Cost"@en . 
+#  --------------------------- Class  10------------------------- 
+:HealthcareProfesional rdf:type owl:Class; 
+                       rdfs:label "HealthcareProfesional"@IRI-based; 
+                       rdfs:label "Healthcare Profesional"@en . 
+#  --------------------------- Class  11------------------------- 
+:Observation rdf:type owl:Class; 
+             rdfs:label "Observation"@IRI-based; 
+             rdfs:label "Observation"@en . 
+#  --------------------------- Class  12------------------------- 
+:Cohort rdf:type owl:Class; 
+        rdfs:label "Cohort"@IRI-based; 
+        rdfs:label "Cohort"@en . 
+#  --------------------------- Class  13------------------------- 
+:DrugInfluencePeriod rdf:type owl:Class; 
+                     rdfs:label "DrugInfluencePeriod"@IRI-based; 
+                     rdfs:label "Drug Influence Period"@en . 
+#  --------------------------- Class  14------------------------- 
+:ConstantDosePeriod rdf:type owl:Class; 
+                    rdfs:label "ConstantDosePeriod"@IRI-based; 
+                    rdfs:label "Constant Dose Period"@en . 
+#  --------------------------- Class  15------------------------- 
+:Hospital rdf:type owl:Class; 
+          rdfs:label "Hospital"@IRI-based; 
+          rdfs:label "Hospital"@en . 
+#  --------------------------- Class  16------------------------- 
+:ObservationPeriod rdf:type owl:Class; 
+                   rdfs:label "ObservationPeriod"@IRI-based; 
+                   rdfs:label "Observation Period"@en . 
+#  --------------------------- Class  17------------------------- 
+:Location rdf:type owl:Class; 
+          rdfs:label "Location"@IRI-based; 
+          rdfs:label "Location"@en . 
+#  --------------------------- Class  18------------------------- 
+:DrugStrength rdf:type owl:Class; 
+              rdfs:label "DrugStrength"@IRI-based; 
+              rdfs:label "Drug Strength"@en . 
+#  --------------------------- Class  19------------------------- 
+:Patient rdf:type owl:Class; 
+         rdfs:label "Patient"@IRI-based; 
+         rdfs:label "Patient"@en . 
+#  --------------------------- Class  20------------------------- 
+:LaboratorySpecimen rdf:type owl:Class; 
+                    rdfs:label "LaboratorySpecimen"@IRI-based; 
+                    rdfs:label "Laboratory Specimen"@en . 
+#  --------------------------- Class  21------------------------- 
+:ConditionSuggestion rdf:type owl:Class; 
+                     rdfs:label "ConditionSuggestion"@IRI-based; 
+                     rdfs:label "Condition Suggestion"@en . 
+#  --------------------------- Class  22------------------------- 
+:Measurement rdf:type owl:Class; 
+             rdfs:label "Measurement"@IRI-based; 
+             rdfs:label "Measurement"@en . 
+#  --------------------------- Class  23------------------------- 
+:DrugCost rdf:type owl:Class; 
+          rdfs:label "DrugCost"@IRI-based; 
+          rdfs:label "Drug cost"@en . 

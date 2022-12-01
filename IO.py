@@ -5,8 +5,6 @@ def GetClassIds(csvPath, column):
     count = 0
     res = []
 
-    print(column)
-
     while True:
         count += 1
 
