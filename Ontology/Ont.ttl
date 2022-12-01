@@ -22,6 +22,584 @@
 
 ###  Property Definitions (Number of Property) 35 ###
 #  --------------------------- Property 0------------------------- 
+:literal_hospitalname rdf:type owl:DatatypeProperty ;
+                      rdfs:label "name"@IRI-based ;
+                      rdfs:label "name"@en ;
+                      rdfs:domain :Hospital ;
+                      rdfs:range xsd:string .
+
+:literal_cohortname rdf:type owl:DatatypeProperty ;
+                      rdfs:label "name"@IRI-based ;
+                      rdfs:label "name"@en ;
+                      rdfs:domain :Cohort ;
+                      rdfs:range xsd:string .
+
+:literal_cohortdescription rdf:type owl:DatatypeProperty ;
+                      rdfs:label "description"@IRI-based ;
+                      rdfs:label "description"@en ;
+                      rdfs:domain :Cohort ;
+                      rdfs:range xsd:string .
+
+:literal_cohorttype rdf:type owl:DatatypeProperty ;
+                      rdfs:label "type"@IRI-based ;
+                      rdfs:label "type"@en ;
+                      rdfs:domain :Cohort ;
+                      rdfs:range xsd:string .
+
+:literal_cohortinitiationdate rdf:type owl:DatatypeProperty ;
+                      rdfs:label "initiationdate"@IRI-based ;
+                      rdfs:label "initiation date"@en ;
+                      rdfs:domain :Cohort ;
+                      rdfs:range xsd:dateTime .
+
+:literal_conditionperiodname rdf:type owl:DatatypeProperty ;
+                      rdfs:label "name"@IRI-based ;
+                      rdfs:label "name"@en ;
+                      rdfs:domain :ConditionPeriod ;
+                      rdfs:range xsd:string .
+
+:literal_conditiontype rdf:type owl:DatatypeProperty ;
+                      rdfs:label "type"@IRI-based ;
+                      rdfs:label "type"@en ;
+                      rdfs:domain :ConditionPeriod ;
+                      rdfs:range xsd:string .
+
+:literal_conditionerastart rdf:type owl:DatatypeProperty ;
+                      rdfs:label "starttime"@IRI-based ;
+                      rdfs:label "start time"@en ;
+                      rdfs:domain :ConditionPeriod ;
+                      rdfs:range xsd:dateTime .
+
+:literal_conditioneraend rdf:type owl:DatatypeProperty ;
+                      rdfs:label "endtime"@IRI-based ;
+                      rdfs:label "end time"@en ;
+                      rdfs:domain :ConditionPeriod ;
+                      rdfs:range xsd:dateTime .
+
+:literal_conditionoccurencecount rdf:type owl:DatatypeProperty ;
+                      rdfs:label "conditionoccurencecount"@IRI-based ;
+                      rdfs:label "condition occurrence count"@en ;
+                      rdfs:domain :ConditionPeriod ;
+                      rdfs:range xsd:integer .
+
+:literal_conditionname rdf:type owl:DatatypeProperty ;
+                      rdfs:label "name"@IRI-based ;
+                      rdfs:label "name"@en ;
+                      rdfs:domain :ConditionSuggestion ;
+                      rdfs:range xsd:string .
+                      
+:literal_conditiontype rdf:type owl:DatatypeProperty ;
+                      rdfs:label "type"@IRI-based ;
+                      rdfs:label "type"@en ;
+                      rdfs:domain :ConditionSuggestion ;
+                      rdfs:range xsd:string .
+
+:literal_conditionstartdate rdf:type owl:DatatypeProperty ;
+                      rdfs:label "starttime"@IRI-based ;
+                      rdfs:label "start time"@en ;
+                      rdfs:domain :ConditionSuggestion ;
+                      rdfs:range xsd:dateTime .
+
+:literal_conditionenddate rdf:type owl:DatatypeProperty ;
+                      rdfs:label "enddate"@IRI-based ;
+                      rdfs:label "end date"@en ;
+                      rdfs:domain :ConditionSuggestion ;
+                      rdfs:range xsd:dateTime .
+
+:literal_stopreason rdf:type owl:DatatypeProperty ;
+                      rdfs:label "stopreason"@IRI-based ;
+                      rdfs:label "stop reason"@en ;
+                      rdfs:domain :ConditionSuggestion ;
+                      rdfs:range xsd:string .
+
+:literal_causeofdeath rdf:type owl:DatatypeProperty ;
+                      rdfs:label "causeofdeath"@IRI-based ;
+                      rdfs:label "cause of death"@en ;
+                      rdfs:domain :Death ;
+                      rdfs:range xsd:string .
+
+:literal_deathtype rdf:type owl:DatatypeProperty ;
+                      rdfs:label "type"@IRI-based ;
+                      rdfs:label "type"@en ;
+                      rdfs:domain :Death ;
+                      rdfs:range xsd:string .
+
+:literal_deathdate rdf:type owl:DatatypeProperty ;
+                      rdfs:label "deathdate"@IRI-based ;
+                      rdfs:label "date"@en ;
+                      rdfs:domain :Death ;
+                      rdfs:range xsd:dateTime .
+
+#DRUGCOST TING
+
+:literal_drugname rdf:type owl:DatatypeProperty ;
+                      rdfs:label "name"@IRI-based ;
+                      rdfs:label "name"@en ;
+                      rdfs:domain :DrugInfluencePeriod ;
+                      rdfs:range xsd:string .
+
+:literal_drugtype rdf:type owl:DatatypeProperty ;
+                      rdfs:label "type"@IRI-based ;
+                      rdfs:label "type"@en ;
+                      rdfs:domain :DrugInfluencePeriod ;
+                      rdfs:range xsd:string .
+
+:literal_drugexposurecount rdf:type owl:DatatypeProperty ;
+                      rdfs:label "exposurecount"@IRI-based ;
+                      rdfs:label "exposure count"@en ;
+                      rdfs:domain :DrugInfluencePeriod ;
+                      rdfs:range xsd:integer .
+
+:literal_drugerastartdate rdf:type owl:DatatypeProperty ;
+                      rdfs:label "startdate"@IRI-based ;
+                      rdfs:label "start date"@en ;
+                      rdfs:domain :DrugInfluencePeriod ;
+                      rdfs:range xsd:dateTime .
+
+:literal_drugeraenddate rdf:type owl:DatatypeProperty ;
+                      rdfs:label "enddate"@IRI-based ;
+                      rdfs:label "end date"@en ;
+                      rdfs:domain :DrugInfluencePeriod ;
+                      rdfs:range xsd:dateTime .
+
+:literal_gapdays rdf:type owl:DatatypeProperty ;
+                      rdfs:label "gapdays"@IRI-based ;
+                      rdfs:label "gap days"@en ;
+                      rdfs:domain :DrugInfluencePeriod ;
+                      rdfs:range xsd:integer .
+
+:literal_drugname rdf:type owl:DatatypeProperty ;
+                      rdfs:label "name"@IRI-based ;
+                      rdfs:label "name"@en ;
+                      rdfs:domain :DrugExposure ;
+                      rdfs:range xsd:string .
+
+:literal_drugtype rdf:type owl:DatatypeProperty ;
+                      rdfs:label "type"@IRI-based ;
+                      rdfs:label "type"@en ;
+                      rdfs:domain :DrugExposure ;
+                      rdfs:range xsd:string .
+
+:literal_stopreason rdf:type owl:DatatypeProperty ;
+                      rdfs:label "stopreason"@IRI-based ;
+                      rdfs:label "stop reason"@en ;
+                      rdfs:domain :DrugExposure ;
+                      rdfs:range xsd:string .
+
+:literal_refills rdf:type owl:DatatypeProperty ;
+                      rdfs:label "refills"@IRI-based ;
+                      rdfs:label "refills"@en ;
+                      rdfs:domain :DrugExposure ;
+                      rdfs:range xsd:integer .
+
+:literal_quantity rdf:type owl:DatatypeProperty ;
+                      rdfs:label "quantity"@IRI-based ;
+                      rdfs:label "quantity"@en ;
+                      rdfs:domain :DrugExposure ;
+                      rdfs:range xsd:integer .
+
+:literal_drugexposurestartdate rdf:type owl:DatatypeProperty ;
+                      rdfs:label "startdate"@IRI-based ;
+                      rdfs:label "start date"@en ;
+                      rdfs:domain :DrugExposure ;
+                      rdfs:range xsd:dateTime .
+
+:literal_drugexposureenddate rdf:type owl:DatatypeProperty ;
+                      rdfs:label "enddate"@IRI-based ;
+                      rdfs:label "end date"@en ;
+                      rdfs:domain :DrugExposure ;
+                      rdfs:range xsd:dateTime .
+
+:literal_sig rdf:type owl:DatatypeProperty ;
+                      rdfs:label "sig"@IRI-based ;
+                      rdfs:label "sig"@en ;
+                      rdfs:domain :DrugExposure ;
+                      rdfs:range xsd:string .
+
+:literal_lotnumber rdf:type owl:DatatypeProperty ;
+                      rdfs:label "lot"@IRI-based ;
+                      rdfs:label "lot"@en ;
+                      rdfs:domain :DrugExposure ;
+                      rdfs:range xsd:string .
+
+:literal_dayssupply rdf:type owl:DatatypeProperty ;
+                      rdfs:label "supply"@IRI-based ;
+                      rdfs:label "supply"@en ;
+                      rdfs:domain :DrugExposure ;
+                      rdfs:range xsd:integer .
+
+:literal_state rdf:type owl:DatatypeProperty ;
+                      rdfs:label "state"@IRI-based ;
+                      rdfs:label "state"@en ;
+                      rdfs:domain :Location ;
+                      rdfs:range xsd:string .
+
+:literal_county rdf:type owl:DatatypeProperty ;
+                      rdfs:label "county"@IRI-based ;
+                      rdfs:label "county"@en ;
+                      rdfs:domain :Location ;
+                      rdfs:range xsd:string .
+
+:literal_address1 rdf:type owl:DatatypeProperty ;
+                      rdfs:label "address1"@IRI-based ;
+                      rdfs:label "address1"@en ;
+                      rdfs:domain :Location ;
+                      rdfs:range xsd:string .
+
+:literal_address2 rdf:type owl:DatatypeProperty ;
+                      rdfs:label "address2"@IRI-based ;
+                      rdfs:label "address2"@en ;
+                      rdfs:domain :Location ;
+                      rdfs:range xsd:string .
+
+:literal_city rdf:type owl:DatatypeProperty ;
+                      rdfs:label "city"@IRI-based ;
+                      rdfs:label "city"@en ;
+                      rdfs:domain :Location ;
+                      rdfs:range xsd:string .
+                      
+:literal_zip rdf:type owl:DatatypeProperty ;
+                      rdfs:label "zip"@IRI-based ;
+                      rdfs:label "zip"@en ;
+                      rdfs:domain :Location ;
+                      rdfs:range xsd:string .
+
+:literal_observationname rdf:type owl:DatatypeProperty ;
+                      rdfs:label "name"@IRI-based ;
+                      rdfs:label "name"@en ;
+                      rdfs:domain :Observation ;
+                      rdfs:range xsd:integer .
+
+:literal_observationtype rdf:type owl:DatatypeProperty ;
+                      rdfs:label "type"@IRI-based ;
+                      rdfs:label "type"@en ;
+                      rdfs:domain :Observation ;
+                      rdfs:range xsd:integer .
+
+:literal_observationdatetime rdf:type owl:DatatypeProperty ;
+                      rdfs:label "datetime"@IRI-based ;
+                      rdfs:label "date time"@en ;
+                      rdfs:domain :Observation ;
+                      rdfs:range xsd:dateTime .
+
+:literal_observationresult rdf:type owl:DatatypeProperty ;
+                      rdfs:label "result"@IRI-based ;
+                      rdfs:label "result"@en ;
+                      rdfs:domain :Observation ;
+                      rdfs:range xsd:string .
+
+:literal_birthdatetime rdf:type owl:DatatypeProperty ;
+                          rdfs:label "birthdate"@IRI-based ;
+                          rdfs:label "birth date"@en ;
+                          rdfs:domain :Patient ;
+                          rdfs:range xsd:dateTime .
+
+:literal_gender rdf:type owl:DatatypeProperty ;
+                      rdfs:label "gender"@IRI-based ;
+                      rdfs:label "gender"@en ;
+                      rdfs:domain :Patient ;
+                      rdfs:range xsd:integer .
+
+:literal_race rdf:type owl:DatatypeProperty ;
+                          rdfs:label "race"@IRI-based ;
+                          rdfs:label "race"@en ;
+                          rdfs:domain :Patient ;
+                          rdfs:range xsd:integer .
+
+:literal_ethnicity rdf:type owl:DatatypeProperty ;
+                          rdfs:label "ethnicity"@IRI-based ;
+                          rdfs:label "ethnicity"@en ;
+                          rdfs:domain :Patient ;
+                          rdfs:range xsd:integer .
+
+:literal_procedurename rdf:type owl:DatatypeProperty ;
+                          rdfs:label "name"@IRI-based ;
+                          rdfs:label "name"@en ;
+                          rdfs:domain :ProcedureOccurence ;
+                          rdfs:range xsd:integer .
+
+:literal_proceduretype rdf:type owl:DatatypeProperty ;
+                          rdfs:label "type"@IRI-based ;
+                          rdfs:label "type"@en ;
+                          rdfs:domain :ProcedureOccurence ;
+                          rdfs:range xsd:integer .
+
+:literal_proceduremodifier rdf:type owl:DatatypeProperty ;
+                          rdfs:label "modifier"@IRI-based ;
+                          rdfs:label "modifier"@en ;
+                          rdfs:domain :ProcedureOccurence ;
+                          rdfs:range xsd:integer .
+
+:literal_proceduredatetime rdf:type owl:DatatypeProperty ;
+                          rdfs:label "date"@IRI-based ;
+                          rdfs:label "date"@en ;
+                          rdfs:domain :ProcedureOccurence ;
+                          rdfs:range xsd:dateTime .
+
+:literal_quantity rdf:type owl:DatatypeProperty ;
+                          rdfs:label "quantity"@IRI-based ;
+                          rdfs:label "quantity"@en ;
+                          rdfs:domain :ProcedureOccurence ;
+                          rdfs:range xsd:integer .
+
+:literal_speciality rdf:type owl:DatatypeProperty ;
+                          rdfs:label "speciality"@IRI-based ;
+                          rdfs:label "speciality"@en ;
+                          rdfs:domain :HealthcareProfesional ;
+                          rdfs:range xsd:integer .
+
+:literal_dea rdf:type owl:DatatypeProperty ;
+                          rdfs:label "dea"@IRI-based ;
+                          rdfs:label "dea"@en ;
+                          rdfs:domain :HealthcareProfesional ;
+                          rdfs:range xsd:string .
+
+:literal_npi rdf:type owl:DatatypeProperty ;
+                          rdfs:label "npi"@IRI-based ;
+                          rdfs:label "npi"@en ;
+                          rdfs:domain :HealthcareProfesional ;
+                          rdfs:range xsd:string .
+
+:literal_gender rdf:type owl:DatatypeProperty ;
+                          rdfs:label "gender"@IRI-based ;
+                          rdfs:label "gender"@en ;
+                          rdfs:domain :HealthcareProfesional ;
+                          rdfs:range xsd:string .
+
+:literal_yearofbirth rdf:type owl:DatatypeProperty ;
+                          rdfs:label "yearofbirth"@IRI-based ;
+                          rdfs:label "year of birth"@en ;
+                          rdfs:domain :HealthcareProfesional ;
+                          rdfs:range xsd:integer .
+
+:literal_visittype rdf:type owl:DatatypeProperty ;
+                          rdfs:label "type"@IRI-based ;
+                          rdfs:label "type"@en ;
+                          rdfs:domain :VisitOccurence ;
+                          rdfs:range xsd:integer .
+
+:literal_visitstartdate rdf:type owl:DatatypeProperty ;
+                          rdfs:label "startdate"@IRI-based ;
+                          rdfs:label "start date"@en ;
+                          rdfs:domain :VisitOccurence ;
+                          rdfs:range xsd:dateTime .
+
+:literal_visitenddate rdf:type owl:DatatypeProperty ;
+                          rdfs:label "enddate"@IRI-based ;
+                          rdfs:label "end date"@en ;
+                          rdfs:domain :VisitOccurence ;
+                          rdfs:range xsd:dateTime .
+
+:literal_devicename rdf:type owl:DatatypeProperty ;
+                          rdfs:label "name"@IRI-based ;
+                          rdfs:label "name"@en ;
+                          rdfs:domain :DeviceExposure ;
+                          rdfs:range xsd:integer .
+
+:literal_deviceexposurestartdate rdf:type owl:DatatypeProperty ;
+                          rdfs:label "startdate"@IRI-based ;
+                          rdfs:label "start date"@en ;
+                          rdfs:domain :DeviceExposure ;
+                          rdfs:range xsd:dateTime .
+
+:literal_deviceexposureenddate rdf:type owl:DatatypeProperty ;
+                          rdfs:label "enddate"@IRI-based ;
+                          rdfs:label "end date"@en ;
+                          rdfs:domain :DeviceExposure ;
+                          rdfs:range xsd:dateTime .
+
+:literal_devicetype rdf:type owl:DatatypeProperty ;
+                          rdfs:label "type"@IRI-based ;
+                          rdfs:label "type"@en ;
+                          rdfs:domain :DeviceExposure ;
+                          rdfs:range xsd:integer .
+
+:literal_quantity rdf:type owl:DatatypeProperty ;
+                          rdfs:label "quantity"@IRI-based ;
+                          rdfs:label "quantity"@en ;
+                          rdfs:domain :DeviceExposure ;
+                          rdfs:range xsd:integer .
+
+:literal_dosevalue rdf:type owl:DatatypeProperty ;
+                          rdfs:label "value"@IRI-based ;
+                          rdfs:label "value"@en ;
+                          rdfs:domain :ConstantDosePeriod ;
+                          rdfs:range xsd:float .
+
+:literal_doseerastartdate rdf:type owl:DatatypeProperty ;
+                          rdfs:label "startdate"@IRI-based ;
+                          rdfs:label "start date"@en ;
+                          rdfs:domain :ConstantDosePeriod ;
+                          rdfs:range xsd:dateTime .
+
+:literal_doseeraenddate rdf:type owl:DatatypeProperty ;
+                          rdfs:label "enddate"@IRI-based ;
+                          rdfs:label "end date"@en ;
+                          rdfs:domain :ConstantDosePeriod ;
+                          rdfs:range xsd:dateTime .
+
+:literal_amountvalue rdf:type owl:DatatypeProperty ;
+                          rdfs:label "amountvalue"@IRI-based ;
+                          rdfs:label "amount value"@en ;
+                          rdfs:domain :DrugStrength ;
+                          rdfs:range xsd:float .
+
+:literal_amountunit rdf:type owl:DatatypeProperty ;
+                          rdfs:label "amountunit"@IRI-based ;
+                          rdfs:label "amount unit"@en ;
+                          rdfs:domain :DrugStrength ;
+                          rdfs:range xsd:integer .
+
+:literal_concentrationvalue rdf:type owl:DatatypeProperty ;
+                          rdfs:label "concentrationvalue"@IRI-based ;
+                          rdfs:label "concentration value"@en ;
+                          rdfs:domain :DrugStrength ;
+                          rdfs:range xsd:float .
+
+:literal_concentrationunit rdf:type owl:DatatypeProperty ;
+                          rdfs:label "concentrationunit"@IRI-based ;
+                          rdfs:label "concentration unit"@en ;
+                          rdfs:domain :DrugStrength ;
+                          rdfs:range xsd:integer .
+
+:literal_measurementdate rdf:type owl:DatatypeProperty ;
+                          rdfs:label "date"@IRI-based ;
+                          rdfs:label "date"@en ;
+                          rdfs:domain :Measurement ;
+                          rdfs:range xsd:dateTime .
+
+:literal_measurementtype rdf:type owl:DatatypeProperty ;
+                          rdfs:label "type"@IRI-based ;
+                          rdfs:label "type"@en ;
+                          rdfs:domain :Measurement ;
+                          rdfs:range xsd:integer .
+
+:literal_normalrangelow rdf:type owl:DatatypeProperty ;
+                          rdfs:label "nomalrangelow"@IRI-based ;
+                          rdfs:label "nomal range low"@en ;
+                          rdfs:domain :Measurement ;
+                          rdfs:range xsd:float .
+
+:literal_normalrangehigh rdf:type owl:DatatypeProperty ;
+                          rdfs:label "nomalrangehigh"@IRI-based ;
+                          rdfs:label "nomal range high"@en ;
+                          rdfs:domain :Measurement ;
+                          rdfs:range xsd:float .
+
+:literal_measurementvalue rdf:type owl:DatatypeProperty ;
+                          rdfs:label "value"@IRI-based ;
+                          rdfs:label "value"@en ;
+                          rdfs:domain :Measurement ;
+                          rdfs:range xsd:float .
+
+:literal_unit rdf:type owl:DatatypeProperty ;
+                          rdfs:label "unit"@IRI-based ;
+                          rdfs:label "unit"@en ;
+                          rdfs:domain :Measurement ;
+                          rdfs:range xsd:integer .
+
+:literal_notedate rdf:type owl:DatatypeProperty ;
+                          rdfs:label "date"@IRI-based ;
+                          rdfs:label "date"@en ;
+                          rdfs:domain :Note ;
+                          rdfs:range xsd:dateTime .
+
+:literal_notetype rdf:type owl:DatatypeProperty ;
+                          rdfs:label "type"@IRI-based ;
+                          rdfs:label "type"@en ;
+                          rdfs:domain :Note ;
+                          rdfs:range xsd:integer .
+
+:literal_noteclass rdf:type owl:DatatypeProperty ;
+                          rdfs:label "class"@IRI-based ;
+                          rdfs:label "class"@en ;
+                          rdfs:domain :Note ;
+                          rdfs:range xsd:integer .
+
+:literal_notetitle rdf:type owl:DatatypeProperty ;
+                          rdfs:label "title"@IRI-based ;
+                          rdfs:label "title"@en ;
+                          rdfs:domain :Note ;
+                          rdfs:range xsd:string .
+
+:literal_language rdf:type owl:DatatypeProperty ;
+                          rdfs:label "language"@IRI-based ;
+                          rdfs:label "language"@en ;
+                          rdfs:domain :Note ;
+                          rdfs:range xsd:integer .
+
+:literal_notevalue rdf:type owl:DatatypeProperty ;
+                          rdfs:label "value"@IRI-based ;
+                          rdfs:label "value"@en ;
+                          rdfs:domain :Note ;
+                          rdfs:range xsd:string .
+
+:literal_observationperiodstartdatetime rdf:type owl:DatatypeProperty ;
+                          rdfs:label "startdate"@IRI-based ;
+                          rdfs:label "start date"@en ;
+                          rdfs:domain :ObservationPeriod ;
+                          rdfs:range xsd:dateTime .
+
+:literal_observationperiodenddatetime rdf:type owl:DatatypeProperty ;
+                          rdfs:label "enddate"@IRI-based ;
+                          rdfs:label "end date"@en ;
+                          rdfs:domain :ObservationPeriod ;
+                          rdfs:range xsd:dateTime .
+
+:literal_periodtype rdf:type owl:DatatypeProperty ;
+                          rdfs:label "type"@IRI-based ;
+                          rdfs:label "type"@en ;
+                          rdfs:domain :ObservationPeriod ;
+                          rdfs:range xsd:integer .
+
+:literal_type rdf:type owl:DatatypeProperty ;
+                          rdfs:label "type"@IRI-based ;
+                          rdfs:label "type"@en ;
+                          rdfs:domain :LaboratorySpecimen ;
+                          rdfs:range xsd:integer .
+
+:literal_specimendatetime rdf:type owl:DatatypeProperty ;
+                          rdfs:label "date"@IRI-based ;
+                          rdfs:label "date"@en ;
+                          rdfs:domain :LaboratorySpecimen ;
+                          rdfs:range xsd:dateTime .
+
+:literal_quantity rdf:type owl:DatatypeProperty ;
+                          rdfs:label "quantity"@IRI-based ;
+                          rdfs:label "quantity"@en ;
+                          rdfs:domain :LaboratorySpecimen ;
+                          rdfs:range xsd:float .
+
+:literal_unit rdf:type owl:DatatypeProperty ;
+                          rdfs:label "unit"@IRI-based ;
+                          rdfs:label "unit"@en ;
+                          rdfs:domain :LaboratorySpecimen ;
+                          rdfs:range xsd:integer .
+
+:literal_anatomicsite rdf:type owl:DatatypeProperty ;
+                          rdfs:label "anatomicsite"@IRI-based ;
+                          rdfs:label "anatomic site"@en ;
+                          rdfs:domain :LaboratorySpecimen ;
+                          rdfs:range xsd:integer .
+
+:literal_diseasestatus rdf:type owl:DatatypeProperty ;
+                          rdfs:label "diseasestatus"@IRI-based ;
+                          rdfs:label "disease status"@en ;
+                          rdfs:domain :LaboratorySpecimen ;
+                          rdfs:range xsd:integer .
+
+:literal_specimenvalue rdf:type owl:DatatypeProperty ;
+                          rdfs:label "value"@IRI-based ;
+                          rdfs:label "value"@en ;
+                          rdfs:domain :LaboratorySpecimen ;
+                          rdfs:range xsd:integer .
+
+:literal_measurementvalue rdf:type owl:DatatypeProperty ;
+                          rdfs:label "value"@IRI-based ;
+                          rdfs:label "value"@en ;
+                          rdfs:domain :Measurement ;
+                          rdfs:range xsd:integer .
+
 :hospital_org rdf:type owl:ObjectProperty ;
               rdfs:label "hospital_org"@IRI-based; 
               rdfs:label "administrated by"@en; 

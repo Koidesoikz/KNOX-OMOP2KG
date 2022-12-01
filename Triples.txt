@@ -1,3 +1,29 @@
+#        CLASS -> ONT CLASS RELATIONS
+#hospital
+#cohort
+Dataset/mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv/condition_era.csv;condition_era_id;condition_era_id;CLASS_ConditionPeriod
+Dataset/mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv/condition_occurrence.csv;condition_occurrence_id;condition_occurrence_id;CLASS_ConditionSuggestion
+Dataset/mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv/death.csv;death_type_concept_id;death_type_concept_id;CLASS_Death
+#drugcost
+Dataset/mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv/drug_era.csv;drug_era_id;drug_era_id;CLASS_DrugInfluencePeriod
+Dataset/mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv/drug_exposure.csv;drug_exposure_id;drug_exposure_id;CLASS_DrugExposure
+#Location
+Dataset/mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv/observation.csv;observation_id;observation_id;CLASS_Observation
+#organization
+#payerplan
+Dataset/mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv/person.csv;person_id;person_id;CLASS_Patient
+#ProcedureCost
+Dataset/mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv/procedure_occurrence.csv;procedure_occurrence_id;procedure_occurrence_id;CLASS_ProcedureOccurence
+#HealthcareProfessional
+Dataset/mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv/visit_occurrence.csv;visit_occurrence_id;visit_occurrence_id;CLASS_VisitOccurence
+Dataset/mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv/device_exposure.csv;device_exposure_id;device_exposure_id;CLASS_DeviceExposure
+Dataset/mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv/dose_era.csv;dose_era_id;dose_era_id;CLASS_ConstantDosePeriod
+#DrugStrength
+Dataset/mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv/measurement.csv;measurement_id;measurement_id;CLASS_Measurement
+#Note
+Dataset/mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv/observation_period.csv;observation_period_id;observation_period_id;CLASS_ObservationPeriod
+Dataset/mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv/specimen.csv;specimen_id;specimen_id;CLASS_LaboratorySpecimen
+#        CLASS -> CLASS RELATIONS
 #hospital->org
 #obs->healthpro
 #payerplan->drugcost
@@ -33,3 +59,6 @@ Dataset/mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv/dru
 #livesat
 #located at
 #located at
+#        CLASS -> LITERAL RELATIONS
+Dataset/mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv/measurement.csv;measurement_id;value_as_number;literal_measurementvalue;float
+Dataset/mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv/device_exposure.csv;device_exposure_id;device_exposure_start_datetime;literal_deviceexposurestartdate;dateTime

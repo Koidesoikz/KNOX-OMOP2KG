@@ -5,7 +5,7 @@ from TripleGenerator import TripleGenerator
 from csvkit.utilities.csvsql import CSVSQL
 from argparse import ArgumentParser
 
-def ReadMapping(location):
+def ReadTriples(location):
     file = open(location, 'r')
     lines = []
     count = 0
@@ -23,36 +23,55 @@ def ReadMapping(location):
     #file;subjectColumn;objectColumn;predicate
     #lines = file.readlines()
     file.close()
-    print("readmapping")
     return lines
     
 
-def InputIngest(MappingPath, tripleGenerator: TripleGenerator):
-    MappingList = ReadMapping(MappingPath)
-    #count = 0
+def InputIngest(TriplePath, tripleGenerator: TripleGenerator):
+    print("Reading triples")
+    TripleList = ReadTriples(TriplePath)
+    count = 0
+    tripleCount = 0
 
-    for line in MappingList:
+    for line in TripleList:
+        count += 1
+        print(f"Line {count} of {len(TripleList)}")
         line = line.split(';')
-
         res = IO.QueryCSV(line[0], line[1], line[2])
+        #Literal relations
+        if line[3].split('_')[0] == "literal":
+            for i in range(1, len(res[0])):
+                tripleCount += 1
+                #print("Literal")
+                tripleGenerator.LavTripleLiteral((line[1], res[0][i]), (res[1][i], line[4]), line[3])
 
-        for i in range(1, len(res[0])):
-            #count += 1
-            #print(count)
-            tripleGenerator.LavTriple((line[1], res[0][i]), (line[2], res[1][i]), line[3])
+        #Relations between a class and the ontology class
+        elif line[3].split('_')[0] == "CLASS":
+            for i in range(1, len(res[0])):
+                tripleCount += 1
+                tripleGenerator.LavTripleClass((line[1], res[0][i]), line[3].split('_')[1])
+
+        #Relations between specific instances of classes
+        else:
+            for i in range(1, len(res[0])):
+                tripleCount += 1
+                #print("Object")
+                tripleGenerator.LavTriple((line[1], res[0][i]), (line[2], res[1][i]), line[3])
+    print(f"Number of triples: {tripleCount}")
 
 
 def Main(ontPath):
     tripleGenerator = TripleGenerator(rdflib.Namespace(ontPath), rdflib.Graph())
 
     csvPath = "Dataset/mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv/person.csv"
-    MappingPath = "Triples.txt"
+    TriplePath = "Triples.txt"
 
-    InputIngest(MappingPath, tripleGenerator)
+    InputIngest(TriplePath, tripleGenerator)
 
-    print("COCK")
+    print("Serializing...")
 
     tripleGenerator.GetGraph().serialize(format='xml', destination="KG2.xml")
+
+    print("Done")
     
 
 if __name__ == "__main__":

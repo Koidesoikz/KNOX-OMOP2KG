@@ -1,0 +1,5 @@
+Dataset/mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv/device_exposure.csv;device_exposure_id;device_exposure_start_datetime;literal_deviceexposurestartdate;dateTime
+Dataset/mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv/procedure_occurrence.csv;procedure_occurrence_id;procedure_occurrence_id;CLASS_ProcedureOccurence
+Dataset/mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv/procedure_occurrence.csv;visit_occurrence_id;procedure_occurrence_id;visitocc_procedureocc
+Dataset/mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv/measurement.csv;visit_occurrence_id;measurement_id;visitocc_measurement
+Dataset/mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv/measurement.csv;measurement_id;value_as_number;literal_measurementvalue;float
