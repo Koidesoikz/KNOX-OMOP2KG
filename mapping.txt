@@ -21,3 +21,4 @@ measurement_id;Measurement
 note_id;Note
 observation_period_id;ObservationPeriod
 specimen_id;LaboratorySpecimen
+location_id;Location

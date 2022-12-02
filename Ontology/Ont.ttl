@@ -552,7 +552,7 @@
                           rdfs:domain :ObservationPeriod ;
                           rdfs:range xsd:integer .
 
-:literal_type rdf:type owl:DatatypeProperty ;
+:literal_specimentype rdf:type owl:DatatypeProperty ;
                           rdfs:label "type"@IRI-based ;
                           rdfs:label "type"@en ;
                           rdfs:domain :LaboratorySpecimen ;
@@ -592,7 +592,7 @@
                           rdfs:label "value"@IRI-based ;
                           rdfs:label "value"@en ;
                           rdfs:domain :LaboratorySpecimen ;
-                          rdfs:range xsd:integer .
+                          rdfs:range xsd:string .
 
 :literal_measurementvalue rdf:type owl:DatatypeProperty ;
                           rdfs:label "value"@IRI-based ;

@@ -12,7 +12,7 @@ def GetClassIds(csvPath, column):
 
         if not line:
             break
-
+        
         res.append(line.split(",")[column])
     
     file.close()
@@ -41,8 +41,11 @@ def GetColumnNum(csvPath, name):
 
     i = 0
     for string in line:
+        string = string.strip()
+        
         if string == name:
             return i
         i += 1
-    print(name)
+    print("Name not found: " + name)
+    print("Path: " + csvPath)
     return "name not found"

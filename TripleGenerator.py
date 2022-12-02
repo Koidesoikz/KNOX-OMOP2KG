@@ -265,8 +265,8 @@ class TripleGenerator():
                 return self.namespace.literal_normalrangehigh
             case "literal_measurementvalue":
                 return self.namespace.literal_measurementvalue
-            case "literal_unit":
-                return self.namespace.literal_unit
+            case "literal_unitvalue":
+                return self.namespace.literal_unitvalue
             case "literal_notedate":
                 return self.namespace.literal_notedate
             case "literal_notetype":
@@ -285,8 +285,8 @@ class TripleGenerator():
                 return self.namespace.literal_observationperiodenddatetime
             case "literal_periodtype":
                 return self.namespace.literal_periodtype
-            case "literal_type":
-                return self.namespace.literal_type
+            case "literal_specimentype":
+                return self.namespace.literal_specimentype
             case "literal_specimendatetime":
                 return self.namespace.literal_specimendatetime
             case "literal_quantity":
@@ -297,8 +297,8 @@ class TripleGenerator():
                 return self.namespace.literal_anatomicsite
             case "literal_diseasestatus":
                 return self.namespace.literal_diseasestatus
-            case "literal_measurementvalue":
-                return self.namespace.literal_measurementvalue
+            case "literal_specimenvalue":
+                return self.namespace.literal_specimenvalue
             case "literal_measurementvalue":
                 return self.namespace.literal_measurementvalue
             case _:
@@ -391,6 +391,11 @@ class TripleGenerator():
                 else:
                     #HER ER DER MÅSKE EN FEJL! Ved ikk helt hvad input skal være til datetime
                     value = value.replace(" ", "T")
+
+                    #Converts Date to DateTime
+                    if "T" not in value:
+                        value = value + "T00:00:00"
+                    
                     return Literal(str(value), datatype=XSD.dateTime)
             case "string":
                 if value == "":
