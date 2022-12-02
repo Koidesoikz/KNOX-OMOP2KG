@@ -32,9 +32,19 @@ def InputIngest(TriplePath, tripleGenerator: TripleGenerator):
     count = 0
     tripleCount = 0
 
+    #Loading status header
+    print(f"      Line      |               File               |         Observation")
+    print(f"------------------------------------------------------------------------")
     for line in TripleList:
+
+        #Loading status vars and prints BEGIN
         count += 1
-        print(f"Line {count} of {len(TripleList)}")
+        currFile = line.split(";")[0].split("/")[-1]
+        currOp = line.split(";")[-1] if line.split(";")[-2].split("_")[0] != "literal" else line.split(";")[-2]
+        currOp = currOp.strip()
+        print(f"{'Line ' + str(count) + ' of ' + str(len(TripleList)):<16}|    {currFile:<30}|    {currOp}")
+        #Loading status vars and prints END
+        
         line = line.split(';')
         res = IO.QueryCSV(line[0], line[1], line[2])
         #Literal relations
