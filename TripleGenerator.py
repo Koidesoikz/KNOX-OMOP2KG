@@ -15,10 +15,12 @@ class TripleGenerator():
     def SetGraph(self, graph):
         self.graph = graph
 
+    #Creates a URI based on the ID of the instance of the class
     def GetClassURI(self, classTuple):
         classColumnName, classID = classTuple
         return URIRef(str("http://www.example.com/" + self.GetPartialURI(classColumnName) + "/" + classID))
 
+    #Returns a reference to a predicate
     def GetPredicateURI(self, name):
         name = name.strip()
 
@@ -306,15 +308,16 @@ class TripleGenerator():
                 print(name)
                 return
 
-    def LavTriple(self, subject, object, predicate):
+    def ClassTriple(self, subject, object, predicate):
         self.graph.add((self.GetClassURI(subject), self.GetPredicateURI(predicate), self.GetClassURI(object)))
 
-    def LavTripleLiteral(self, subject, object, predicate):
+    def LiteralTriple(self, subject, object, predicate):
         self.graph.add((self.GetClassURI(subject), self.GetPredicateURI(predicate), self.GetLiteral(object)))
 
-    def LavTripleClass(self, subject, object):
+    def OntologyTriple(self, subject, object):
         self.graph.add((self.GetClassURI(subject), RDF.type, self.GetClass(object)))
 
+    #Returns a reference to a class
     def GetClass(self, name):
         name = name.strip()
         match name:
@@ -370,6 +373,7 @@ class TripleGenerator():
                 print("get class shit broke")
                 return
         
+    #returns a reference to a literal
     def GetLiteral(self, data):
         value, type = data
         type = type.strip()
@@ -407,6 +411,7 @@ class TripleGenerator():
                 print(data)
                 return
 
+    #Looks in "Mapping.txt" to find the correct name of a class based on the name of the column in the csv files
     def GetPartialURI(self, columnName):
         f = open("Mapping.txt", 'r')
         while True:

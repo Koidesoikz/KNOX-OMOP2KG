@@ -1,5 +1,5 @@
-from csvkit.utilities.csvsql import CSVSQL
 
+#Returns an array of IDs from the given csv
 def GetClassIds(csvPath, column):
     file = open(csvPath, 'r')
     count = 0
@@ -19,19 +19,10 @@ def GetClassIds(csvPath, column):
 
     return res
 
-    # ---- CSV SQL MEME ----
-    # queryString = "Select Person_id from person"
-
-    # query = ['--query', queryString, csvPath]
-    # res = CSVSQL(query)
-
-    # '--query "Select Person_id from person" Dataset/mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv/person.csv > yeet.csv'
-
-    # print(res.main())
-
 def QueryCSV(file, col1, col2):
     return [GetClassIds(file, GetColumnNum(file, col1)), GetClassIds(file, GetColumnNum(file, col2))]
 
+#Finds the column number based on the column name for a given csv
 def GetColumnNum(csvPath, name):
     file = open(csvPath, 'r')
     line = file.readline()
