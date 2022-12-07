@@ -13,4 +13,4 @@ Converts data from the OMOP CDM, to a KG based on a general purpose ontology. Ma
 
 ## Running the program
 `python Main.py ONTOLOGY_LOCATION`
-`python Main.py .\Ontology\Ont_Linked.ttl
+`python Main.py .\Ontology\Ont_Linked.ttl`
