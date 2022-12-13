@@ -154,7 +154,7 @@ Dataset/mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv/dos
 #literal_concentrationvalue 
 #literal_concentrationunit 
 Dataset/mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv/measurement.csv;measurement_id;measurement_datetime;literal_measurementdate;dateTime 
-Dataset/mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv//measurement.csv;measurement_id;measurement_type_concept_id;literal_measurementtype;integer 
+Dataset/mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv//measurement.csv;measurement_id;measurement_concept_id;literal_measurementtype;integer 
 #literal_normalrangelow 
 #literal_normalrangehigh 
 Dataset/mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv/measurement.csv;measurement_id;value_as_number;literal_measurementvalue;float

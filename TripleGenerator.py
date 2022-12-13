@@ -381,17 +381,17 @@ class TripleGenerator():
         match type:
             case "integer":
                 if value == "":
-                    return Literal(None, datatype=XSD.integer)
+                    return Literal(None, datatype=RDF.nil)
                 else:
                     return Literal(int(value), datatype=XSD.integer)
             case "float":
                 if value == "":
-                    return Literal(None, datatype=XSD.float)
+                    return Literal(None, datatype=RDF.nil)
                 else:
                     return Literal(float(value), datatype=XSD.float)
             case "dateTime":
                 if value == "":
-                    return Literal(None, datatype=XSD.integer)
+                    return Literal(None, datatype=RDF.nil)
                 else:
                     #HER ER DER MÅSKE EN FEJL! Ved ikk helt hvad input skal være til datetime
                     value = value.replace(" ", "T")
@@ -403,7 +403,7 @@ class TripleGenerator():
                     return Literal(str(value), datatype=XSD.dateTime)
             case "string":
                 if value == "":
-                    return Literal(None, datatype=XSD.integer)
+                    return Literal(None, datatype=RDF.nil)
                 else:
                     return Literal(str(value), datatype=XSD.string)
             case _:

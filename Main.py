@@ -1,6 +1,8 @@
+import datetime
 import rdflib
 import IO
 import os
+import time
 from TripleGenerator import TripleGenerator
 from argparse import ArgumentParser
 
@@ -71,6 +73,7 @@ def InputIngest(TriplePath, tripleGenerator: TripleGenerator):
 
 
 def Main(ontPath):
+    runTimeStart = time.time()
     tripleGenerator = TripleGenerator(rdflib.Namespace(ontPath), rdflib.Graph())
 
     csvPath = "Dataset/mimic-iv-demo-data-in-the-omop-common-data-model-0.9/1_omop_data_csv/person.csv"
@@ -80,9 +83,12 @@ def Main(ontPath):
 
     print("Serializing...")
 
-    tripleGenerator.GetGraph().serialize(format='xml', destination="KG2.xml")
+    tripleGenerator.GetGraph().serialize(format='ttl', destination="KnowledgeGraph.ttl")
 
     print("Done")
+    runTimeEnd = time.time()
+    totalRunTime = str(datetime.timedelta(seconds=runTimeEnd-runTimeStart))
+    print("Script runtime: " + totalRunTime)
     
 
 if __name__ == "__main__":
@@ -95,4 +101,6 @@ if __name__ == "__main__":
     args.ONTOLOGY_PATH = "file:///" + str(os.path.abspath(args.ONTOLOGY_PATH)).replace('\\', '/') + "#"
     # ontPath = "file:///" + os.getcwd().replace('\\', '/') + "/Ontology/OurOnt_Linked.ttl#"
 
+    #Midlertidig fix, før jeg adder flags
+    args.ONTOLOGY_PATH = "https://wiki.knox.cs.aau.dk/mimic-ontology.ttl#"
     Main(args.ONTOLOGY_PATH)
